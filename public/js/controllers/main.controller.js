@@ -6,14 +6,13 @@
 MainController.$inject = ['$scope', 'TodoService']; //what tools the MainController function needs
 
 function MainController($scope, TodoService){ //$scope is our bridge to the dom
-  console.log(TodoService.get());
-  TodoService.create('make more todos');
-  console.log(TodoService.get());
-  TodoService.update(0, 'buy some ramen');
-  console.log(TodoService.get());
-  TodoService.delete(2);
-  console.log(TodoService.get());
+  $scope.todos = TodoService.get();
+  $scope.createTodo = createTodo;
 
 
+  function createTodo(newTodo){
+    TodoService.create(newTodo);
+    $scope.newTodo = {};
+  }
 }
 }());

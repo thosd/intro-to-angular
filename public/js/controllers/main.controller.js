@@ -23,7 +23,7 @@ function MainController($scope, TodoService){ //$scope is our bridge to the dom
   function editTodo(todo){
     todo.isBeingEdited = true;
   }
-  function saveTodo(todo){
+  function saveTodo(index, todo){
     TodoService.update(index, todo.desc);
     todo.isBeingEdited = false;
   }
